@@ -1,0 +1,51 @@
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+  // grid-template-columns: 40px auto 40px;
+}
+
+.cards-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.cards-offers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  // grid-column-start: 2;
+  // grid-column-end: 3;
+  border-radius: 13px;
+}
+
+.card-offer > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 13px;
+}
+
+.card-offer h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-offer p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-offer .card-offer-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  background: #D8D5DB;
+  border-radius: 13px;
+}

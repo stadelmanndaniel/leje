@@ -1,0 +1,40 @@
+<%# <div class="flex-container"> %>
+  <%# <div class="cards-filter">
+    <div class="flex-item">Kitchen</div>
+    <div class="flex-item">Bathroom</div>
+    <div class="flex-item">Garden</div>
+  </div> %>
+
+
+  <ul class="list-inline tabs-underlined">
+    <li>
+      <a href="#" class="tab-underlined active">Kitchen</a>
+    </li>
+    <li>
+      <a href="#" class="tab-underlined">Bathroom</a>
+    </li>
+    <li>
+      <a href="#" class="tab-underlined">Garden</a>
+    </li>
+  </ul>
+
+<%# </div> %>
+
+<div class="container">
+  <div class="cards-offers">
+    <% @offers.each do |offer| %>
+      <div class="card-offer">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <div class="card-offer-infos">
+
+          <div>
+            <h2><%= offer.name %></h2>
+            <p><%= offer.description %></p>
+            <p><%= offer.address %></p>
+          </div>
+          <h2 class="card-offer-pricing"><%= offer.price %></h2>
+        </div>
+      </div>
+      <% end %>
+  </div>
+</div>

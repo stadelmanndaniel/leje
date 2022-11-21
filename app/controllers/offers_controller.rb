@@ -1,5 +1,9 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: %i[ show edit update destroy ]
+  before_action :set_offer, only: %i[show edit update destroy]
+
+  # Add here the methods that you want a visitor to access without an account
+  skip_before_action :authenticate_user!, only: %i[show index]
+
   def index
     @offers = Offer.all
   end

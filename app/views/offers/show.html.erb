@@ -6,10 +6,18 @@
   <div class="row mt-4">
       <div class="col-4">
         <div class="card-category">
-          <%= @offer.name %>
-          <%= @offer.description %>
-          <%= @offer.address %>
-          <%= @offer.price %>
+          <h1><%= @offer.name %></h1>
+          <img src="https://i.ebayimg.com/images/g/I5wAAOSwm0dhAH5H/s-l500.jpg" alt="Girl in a jacket" width="500" height="300">
+          <h3><%= @offer.description %></h3>
+          <p><%= @offer.address %></p>
+          <p><%= @offer.price  %></p>
         </div>
       </div>
   </div>
+
+
+
+
+
+
+<%= render "checkout" %>

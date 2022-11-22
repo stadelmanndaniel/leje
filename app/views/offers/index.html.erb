@@ -42,6 +42,7 @@
       <p><%= @offers.first.description %></p>
       <p><%= @offers.first.address %></p>
       <p><strong><%= @offers.first.price%>€</strong></p>
+      <%= cl_image_tag(@offers.first.photo.key, width: 400, height: 300, crop: :fill) %>
     </div>
   </div>
 </div>

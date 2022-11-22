@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
 
 puts 'Creating 3 fake users...'
 
@@ -18,6 +12,7 @@ puts 'Creating 3 fake users...'
   user.save
   puts "I just created a user nr #{user.id}"
 
+  photo = URI.open("https://www.startupvalley.news/de/wp-content/uploads/sites/2/2017/10/WeiterGeben.jpg")
   puts 'Creating 3 fake offers...'
   offer = Offer.new(
     name: Faker::Appliance.equipment,
@@ -26,6 +21,7 @@ puts 'Creating 3 fake users...'
     address: "Kreuzberg"
   )
   offer.user = user
+  offer.photo.attach(io: photo, filename: "nes.png", content_type: "image/png")
   offer.save
   p "Offer #{offer.id} created"
 

@@ -15,3 +15,12 @@
       </div>
     <%= render "checkout" %>
   </div>
+
+
+<% @offer.bookings.each do |booking| %>
+<p>Review from user: <%= booking.user.first_name %> :</p>
+<%= booking.review %>
+<%= booking.rating %>
+<p>----------------</p>
+<br>
+<% end %>

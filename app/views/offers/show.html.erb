@@ -2,23 +2,56 @@
 
 
 
+
 <div class="container ">
   <div class="row mt-4">
-      <div class="col-5">
-        <div class="card-category shadow p-3 mb-5 bg-body rounded">
-          <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4" alt="Girl in a jacket" width="500" height="300">
-          <h1><%= @offer.name %></h1>
-          <p><%= @offer.description %></p>
-          <p><%= @offer.address %></p>
-          <p><strong><%= @offer.price   %>€</strong></p>
+
+      <h1><%= @offer.name %></h1>
+      <p> <i class="fa-solid fa-star"></i>5,0 4.reviews</p>
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 754px">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active card-category sh bg-body">
+            <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
+          </div>
+          <div class="carousel-item card-category sh bg-body">
+            <img src="https://www.mylager.de/wp-content/uploads/haushalt-organisieren.jpeg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
+          </div>
+          <div class="carousel-item card-category sh bg-body">
+            <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
+          </div>
         </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-    <%= render "checkout" %>
-  </div>
 
-<%= link_to "Edit offer", edit_offer_path(@offer) %>
-<%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
+        </div>
+        <div class="card-category col-7 p-3 border-bottom sh bg-body rounded d-flex">
+          <div>
+            <p><strong><%= @offer.description %></strong></p>
+            <p><%= @offer.address %></p>
+            <p><strong><%= @offer.price   %>€</strong></p>
+          </div>
+          <img class="avatar ms-4" alt="avatar" width="40" height="40"  src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+        </div>
+          <%= render "checkout" %>
 
+          <%# <%= link_to "Edit offer", edit_offer_path(@offer) %>
+          <%# <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
+
+ 
+  </div>  </div>
 
 <% @offer.bookings.each do |booking| %>
   <% if booking.review %>
@@ -33,9 +66,6 @@
 <% end %>
 
 
-
-
-
 <div class="container" data-controller="hello">
   <h1>Welcome to our form</h1>
   <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
@@ -44,3 +74,4 @@
     <%= f.submit 'Book' %>
   <% end %>
 </div>
+

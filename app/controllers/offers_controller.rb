@@ -25,6 +25,22 @@ class OffersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @offer.update(offer_params)
+      redirect_to @offer, notice: "Offer was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @offer.destroy
+    redirect_to offers_url, notice: "Offer was successfully destroyed."
+  end
+
   private
 
   def set_offer
@@ -32,6 +48,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :description, :price, :address)
+    params.require(:offer).permit(:name, :description, :price, :address, :user_id)
   end
 end

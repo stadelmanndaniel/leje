@@ -36,14 +36,13 @@
         </div>
       <% end %>
     <% end %>
+    <div class="card-offer shadow p-3 mb-5 bg-body rounded">
+      <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4" alt="Girl in a jacket" width="500" height="300">
+      <h2><%= @offers.first.name %></h2>
+      <p><%= @offers.first.description %></p>
+      <p><%= @offers.first.address %></p>
+      <p><strong><%= @offers.first.price%>€</strong></p>
+      <%= cl_image_tag(@offers.first.photo.key, width: 400, height: 300, crop: :fill) %>
+    </div>
   </div>
 </div>
-
-        <div class="card-category shadow p-3 mb-5 bg-body rounded">
-          <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4" alt="Girl in a jacket" width="500" height="300">
-          <h1><%= @offers.first.name %></h1>
-          <p><%= @offers.first.description %></p>
-          <p><%= @offers.first.address %></p>
-          <p><strong><%= @offers.first.price   %>€</strong></p>
-          <%= cl_image_tag(@offers.first.photo.key, width: 400, height: 300, crop: :fill) %>
-          </div>

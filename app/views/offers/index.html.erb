@@ -19,22 +19,21 @@
   </ul>
 
 <%# </div> %>
-
 <div class="container">
   <div class="cards-offers">
     <% @offers.each do |offer| %>
-      <div class="card-offer">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-        <div class="card-offer-infos">
-
-          <div>
-            <h2><%= offer.name %></h2>
-            <p><%= offer.description %></p>
-            <p><%= offer.address %></p>
+      <%= link_to offer, class: "card-link" do %>
+        <div class="card-offer">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-offer-infos">
+            <div>
+              <h2><%= offer.name %></h2>
+              <p><%= offer.description %></p>
+              <p><%= offer.address %></p>
+            </div>
+            <h2 class="card-offer-pricing"><%= offer.price %></h2>
           </div>
-          <h2 class="card-offer-pricing"><%= offer.price %></h2>
         </div>
-      </div>
       <% end %>
         <div class="card-category shadow p-3 mb-5 bg-body rounded">
           <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4" alt="Girl in a jacket" width="500" height="300">
@@ -43,5 +42,6 @@
           <p><%= @offers.first.address %></p>
           <p><strong><%= @offers.first.price   %>€</strong></p>
           </div>
+    <% end %>
   </div>
 </div>

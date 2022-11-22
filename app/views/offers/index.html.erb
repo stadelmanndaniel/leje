@@ -35,6 +35,13 @@
           </div>
         </div>
       <% end %>
+        <div class="card-category shadow p-3 mb-5 bg-body rounded">
+          <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4" alt="Girl in a jacket" width="500" height="300">
+          <h1><%= @offers.first.name %></h1>
+          <p><%= @offers.first.description %></p>
+          <p><%= @offers.first.address %></p>
+          <p><strong><%= @offers.first.price   %>€</strong></p>
+          </div>
     <% end %>
   </div>
 </div>

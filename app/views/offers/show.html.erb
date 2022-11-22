@@ -19,12 +19,28 @@
 <%= link_to "Edit offer", edit_offer_path(@offer) %>
 <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
 
+
 <% @offer.bookings.each do |booking| %>
-<p>Review from user: <%= booking.user.first_name %> :</p>
-<%= booking.review %>
+  <% if booking.review %>
+    <p>Review from user: <%= booking.user.first_name %> :</p>
+    <%= booking.review %>
 
-<p>Rating: <%= booking.rating %> <i class="fa-solid fa-star"></i></p>
+    <p>Rating: <%= booking.rating %> <i class="fa-solid fa-star"></i></p>
 
-<p>----------------</p>
-<br>
+    <p>----------------</p>
+    <br>
+  <% end %>
 <% end %>
+
+
+
+
+
+<div class="container" data-controller="hello">
+  <h1>Welcome to our form</h1>
+  <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+    <%= f.submit 'Book' %>
+  <% end %>
+</div>

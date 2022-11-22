@@ -25,16 +25,38 @@ puts 'Creating 3 fake users...'
   offer.save
   p "Offer #{offer.id} created"
 
-  3.times do
     booking = Booking.new(
       review: Faker::Lorem.paragraph(sentence_count: 2),
-      rating: [1, 2, 3, 4, 5].sample
+      rating: [1, 2, 3, 4, 5].sample,
+      start_date: "01-01-2022",
+      end_date: "02-01-2022"
     )
     booking.user = user
     booking.offer = offer
     booking.save
     p "Review #{booking.id} created"
-  end
+
+    booking = Booking.new(
+      review: Faker::Lorem.paragraph(sentence_count: 2),
+      rating: [1, 2, 3, 4, 5].sample,
+      start_date: "01-02-2022",
+      end_date: "02-02-2022"
+    )
+    booking.user = user
+    booking.offer = offer
+    booking.save
+    p "Review #{booking.id} created"
+
+    booking = Booking.new(
+      review: Faker::Lorem.paragraph(sentence_count: 2),
+      rating: [1, 2, 3, 4, 5].sample,
+      start_date: "01-03-2022",
+      end_date: "02-03-2022"
+    )
+    booking.user = user
+    booking.offer = offer
+    booking.save
+    p "Review #{booking.id} created"
 
   offer = Offer.new(
     name: Faker::Appliance.equipment,
@@ -45,16 +67,38 @@ puts 'Creating 3 fake users...'
   offer.user = user
   offer.save
   p "Offer #{offer.id} created"
-  3.times do
-    booking = Booking.new(
-      review: Faker::Lorem.paragraph(sentence_count: 2),
-      rating: [1, 2, 3, 4, 5].sample
-    )
-    booking.user = user
-    booking.offer = offer
-    booking.save
-    p "Review #{booking.id} created"
-  end
+  booking = Booking.new(
+    review: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: [1, 2, 3, 4, 5].sample,
+    start_date: "01-01-2022",
+    end_date: "02-01-2022"
+  )
+  booking.user = user
+  booking.offer = offer
+  booking.save
+  p "Review #{booking.id} created"
+
+  booking = Booking.new(
+    review: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: [1, 2, 3, 4, 5].sample,
+    start_date: "01-02-2022",
+    end_date: "02-02-2022"
+  )
+  booking.user = user
+  booking.offer = offer
+  booking.save
+  p "Review #{booking.id} created"
+
+  booking = Booking.new(
+    review: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: [1, 2, 3, 4, 5].sample,
+    start_date: "01-03-2022",
+    end_date: "02-03-2022"
+  )
+  booking.user = user
+  booking.offer = offer
+  booking.save
+  p "Review #{booking.id} created"
 
   offer = Offer.new(
     name: Faker::Appliance.equipment,
@@ -65,16 +109,38 @@ puts 'Creating 3 fake users...'
   offer.user = user
   offer.save
   p "Offer #{offer.id} created"
-  3.times do
-    booking = Booking.new(
-      review: Faker::Lorem.paragraph(sentence_count: 2),
-      rating: [1, 2, 3, 4, 5].sample
-    )
-    booking.user = user
-    booking.offer = offer
-    booking.save
-    p "Review #{booking.id} created"
-  end
+  booking = Booking.new(
+    review: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: [1, 2, 3, 4, 5].sample,
+    start_date: "01-01-2022",
+    end_date: "02-01-2022"
+  )
+  booking.user = user
+  booking.offer = offer
+  booking.save
+  p "Review #{booking.id} created"
+
+  booking = Booking.new(
+    review: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: [1, 2, 3, 4, 5].sample,
+    start_date: "01-02-2022",
+    end_date: "02-02-2022"
+  )
+  booking.user = user
+  booking.offer = offer
+  booking.save
+  p "Review #{booking.id} created"
+
+  booking = Booking.new(
+    review: Faker::Lorem.paragraph(sentence_count: 2),
+    rating: [1, 2, 3, 4, 5].sample,
+    start_date: "01-03-2022",
+    end_date: "02-03-2022"
+  )
+  booking.user = user
+  booking.offer = offer
+  booking.save
+  p "Review #{booking.id} created"
 end
 p "Seeding complete"
 p "You now have #{User.count} users, #{Offer.count} offers, #{Booking.count} reviews."

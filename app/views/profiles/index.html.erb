@@ -1,0 +1,20 @@
+<div class="container">
+  <% if @offers.count != 0 %>
+    <h3 class="mt-3">Here are the offers you posted:</h3>
+    <%= render "shared/index-card"%>
+  <% end %>
+</div>
+
+
+<div class="container">
+<% if @bookings.count != 0 %>
+  <h3>Here your bookings:</h3>
+  <% @bookings.each do |booking| %>
+    <p>You rented: <%= booking.offer.name %> </p>
+    <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
+    <p>---------</p>
+    <br>
+    <% end %>
+  <% end %>
+
+</div>

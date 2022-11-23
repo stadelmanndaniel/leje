@@ -1,0 +1,33 @@
+<div class="cards">
+  <% @offers.each do |offer| %>
+    <%= link_to offer, class: "card-link" do %>
+      <img src="https://source.unsplash.com/random/" />
+      <div class="card-offer-infos">
+        <div class="card-title-description">
+          <h2><%= offer.name %></h2>
+          <p><%= offer.description %></p>
+        </div>
+        <div class="card-rating-price">
+          <div>
+            <p>
+              <i class="fa-solid fa-location-dot"></i> <%= offer.address %>
+              <i class="fa-regular fa-user"></i> <%= offer.user.first_name %>
+              <i class="fa-regular fa-star"></i> <%= (offer.bookings.count == 0) ? "-" : offer.bookings.first.rating %>
+            </p>
+          </div>
+          <div>
+            <h2 class="card-offer-price"><%= offer.price %>€</h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+    <%# <div class="card-offer shadow p-3 mb-5 bg-body rounded"> %>
+      <%# <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4" alt="Girl in a jacket" width="500" height="300"> %>
+      <%# <h2><%= @offers.first.name %>
+      <%# <p><%= @offers.first.description %>
+      <%# <p><%= @offers.first.address %>
+      <%# <p><strong><%= @offers.first.price%>
+      <%# <%= cl_image_tag(@offers.first.photo.key, width: 400, height: 300, crop: :fill) %>
+    <%# </div> %>
+</div>

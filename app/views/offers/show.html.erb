@@ -45,12 +45,12 @@
           </div>
           <img class="avatar ms-4" alt="avatar" width="40" height="40"  src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
         </div>
-          <%= render "checkout" %>
+          <%# <%= render "checkout" %>
 
-          <%# <%= link_to "Edit offer", edit_offer_path(@offer) %>
-          <%# <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
+          <%= link_to "Edit offer", edit_offer_path(@offer), class: "btn btn-light text link-dark" %>
+          <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
 
- 
+
   </div>  </div>
 
 <% @offer.bookings.each do |booking| %>
@@ -66,12 +66,12 @@
 <% end %>
 
 
-<div class="container" data-controller="hello">
+<div class="container">
   <h1>Welcome to our form</h1>
   <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+    <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
     <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
     <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
     <%= f.submit 'Book' %>
   <% end %>
 </div>
-

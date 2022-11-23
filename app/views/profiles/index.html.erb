@@ -1,20 +1,36 @@
 <div class="container">
   <% if @offers.count != 0 %>
-    <h3 class="mt-3">Here are the offers you posted:</h3>
+    <h3 class="mt-3">Your posts: (<%= @offers.count %>)</h3>
     <%= render "shared/index-card"%>
   <% end %>
 </div>
 
-
+<br>
+<br>
 <div class="container">
-<% if @bookings.count != 0 %>
-  <h3>Here your bookings:</h3>
-  <% @bookings.each do |booking| %>
-    <p>You rented: <%= booking.offer.name %> </p>
-    <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
-    <p>---------</p>
+  <% if @bookings.count != 0 %>
+    <h3> Your bookings:</h3>
     <br>
+     <% if @bookings_current.count != 0 %>
+     <h4>Current bookings: (<%= @bookings_current.count %>)</h4>
+      <% @bookings_current.each do |booking| %>
+        <div class="bookings">
+          <p>You are renting : <%= booking.offer.name %> from <%= booking.offer.user.first_name %></p>
+          <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
+          <p>Please contact the owner under <%= link_to booking.offer.user.phone_number, "tel:#{booking.offer.user.phone_number}" %> or email under <%= mail_to booking.offer.user.email %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <br>
+     <% if @bookings_past.count != 0 %>
+     <h4>Past bookings: (<%= @bookings_past.count %>)</h4>
+      <% @bookings_past.each do |booking| %>
+        <div class="bookings">
+          <p>You rented: <%= booking.offer.name %> from <%= booking.offer.user.first_name %></p>
+          <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
+          <p>Reviews are coming : ></p>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
-
 </div>

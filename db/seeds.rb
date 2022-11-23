@@ -1,5 +1,5 @@
 require "open-uri"
-
+# Hfiiy
 puts 'Creating first fake user...'
 
 user = User.new(

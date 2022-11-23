@@ -30,6 +30,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 13px;
+  width: 100%
 }
 
 .card-link {
@@ -39,6 +40,7 @@
   padding-right: 13px;
   text-decoration: none;
   color: inherit;
+  overflow: hidden;
 }
 
 .card-link:hover {
@@ -67,12 +69,16 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-title-description p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-rating-price {

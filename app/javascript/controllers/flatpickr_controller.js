@@ -6,9 +6,11 @@ import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
 export default class extends Controller {
   static targets = [ "startTime", "endTime" ]
   connect() {
-    console.log("nelo");
+    const unavailable = JSON.parse(document.getElementById("unavailable").getAttribute("data-dates"))
     flatpickr(this.startTimeTarget, {
-              enableTime: true,
+              enableTime: false,
+              dateFormat: "Y-m-d",
+              disable: unavailable,
               plugins: [new rangePlugin({ input: "#end_time"})]})
     // flatpickr(this.endTimeTarget, {})
 

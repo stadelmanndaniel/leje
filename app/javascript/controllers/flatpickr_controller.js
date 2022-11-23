@@ -11,8 +11,8 @@ export default class extends Controller {
               enableTime: false,
               dateFormat: "Y-m-d",
               disable: unavailable,
+              minDate: new Date(),
               plugins: [new rangePlugin({ input: "#end_time"})]})
     // flatpickr(this.endTimeTarget, {})
-
   }
 }

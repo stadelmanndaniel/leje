@@ -2,31 +2,36 @@
 
 </div> %>
 <div class="container">
-  <div class="filters">
-    <ul class="list-inline tabs-underlined">
-      <li>
-        <a href="#" class="tab-underlined active" data-controller="filters"><i class="fa-solid fa-kitchen-set"></i> Kitchen</a>
-      </li>
-      <li>
-        <a href="#" class="tab-underlined"><i class="fa-solid fa-toilet-paper"></i> Bathroom</a>
-      </li>
-      <li>
-        <a href="#" class="tab-underlined"><i class="fa-regular fa-futbol"></i> Garden</a>
-      </li>
-      <li class="tab-underlined">
-        <i class="fa-regular fa-futbol"></i> <%= link_to "Garden", offers_path(:query => { :category => :garden } ) %>
-      </li>
-    </ul>
-  </div>
-  <div class="search-field">
-      <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search by category"
-        %>
-        <%= submit_tag "Go", class: "btn btn-primary" %>
-      <% end %>
+  <div class=filters>
+    <div class="filter-icons">
+      <ul class="list-inline all-tabs" data-controller="filter">
+        <li class="tab" data-action="click->filter#active">
+          <i class="fa-solid fa-kitchen-set"></i> <%= link_to "Kitchen", offers_path(:query => { :category => :Kitchen } ) %>
+        </li>
+        <li class="tab" data-action="click->filter#active">
+          <i class="fa-regular fa-futbol"></i> <%= link_to "Garden", offers_path(:query => { :category => :Garden } ) %>
+        </li>
+        <li class="tab">
+          <i class="fa-solid fa-toilet-paper"></i> <%= link_to "Bathroom", offers_path(:query => { :category => :Bathroom } ) %>
+        </li>
+        <li class="tab">
+          <i class="fa-solid fa-film"></i> <%= link_to "Entertainment", offers_path(:query => { :category => :Entertainment } ) %>
+        </li>
+        <li class="tab">
+          <i class="fa-solid fa-wrench"></i> <%= link_to "Construction", offers_path(:query => { :category => :Construction } ) %>
+        </li>
+      </ul>
+    </div>
+    <div class="search-field">
+        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query2,
+            params[:query2],
+            class: "form-control",
+            placeholder: "Search by category"
+          %>
+          <%= submit_tag "Go", class: "btn btn-primary" %>
+        <% end %>
+    </div>
   </div>
   <%= render "shared/index-card" %>
 </div>

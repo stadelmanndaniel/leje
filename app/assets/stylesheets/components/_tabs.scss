@@ -1,14 +1,52 @@
+// -- for the filter-icons see below --
+.filters {
+  //   display: grid;
+  //   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  //   grid-gap: 10px;
+  //   grid-column-start: 2;
+  //   grid-column-end: 3;
+    // display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: relative;
+    color: black;
+    text-decoration: none;
+  }
+
+  .search-field {
+    // border-radius: 13px;
+    align-items: flex-end;
+  }
+
+  .search-field .form-control {
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+  }
+
+  .search-field .btn {
+    border-top-right-radius: 13px;
+    border-bottom-right-radius: 13px;
+    background-color: $navy-blue;
+    border-color: $navy-blue;
+    &:hover {
+      background-color: #B0D7FF;
+      border-color: #B0D7FF;
+      transition: 0.2s;
+    }
+  }
+
 .tabs-underlined {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
-.tabs-underlined .tab-underlined {
+.tab-underlined {
   color: black;
   padding: 8px;
   margin: 8px;
   opacity: .4;
-  cursor: pointer;
+  // cursor: pointer;
   text-decoration: none;
   border-bottom: 4px solid transparent;
 }

@@ -1,17 +1,9 @@
-<div class="row bg-body rounded d-flex justify-content-end ">
-  <div class="p-4 col-md-4 order-md-2 mb-4 shadow p-3 mb-5 bg-body rounded ">
-    <ul class="list-group mb-3 rounded-4">
-      <li class="list-group-item d-flex justify-content-between">
-        <span>Check-in</span>
-        <span>Check-out</span>
-      </li>
-    </ul>
-    <form class="card p-3">
-      <div class="input-group">
-        <div class="input-group-append ">
-          <button type="submit" class="btn btn-primary  ">Book</button>
-        </div>
-      </div>
-    </form>
-  </div>
+ <div class="shadow p-3 mb-5 bg-body rounded mt-5 col-12 col-lg-4">
+    <h1>Welcome to our form</h1>
+    <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+      <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
+      <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+      <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+      <%= f.submit 'Book' , class:"btn btn-primary rounded col-12 " %>
+    <% end %>
 </div>

@@ -6,7 +6,7 @@ class OffersController < ApplicationController
 
   def index
     if params[:query].present?
-      @offers = Offer.where(category: params[:query])
+      @offers = Offer.where(category: params[:query][:category])
     else
       @offers = Offer.all
     end

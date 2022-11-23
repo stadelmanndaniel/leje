@@ -5,8 +5,16 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show index]
 
   def index
-    @offers = Offer.all
+    if params[:query].present?
+      @offers = Offer.where(category: params[:query])
+    else
+      @offers = Offer.all
+    end
   end
+
+  # def search
+  #   @offers = Song.where(category: params[:query])
+  # end
 
   def show
     @booking = Booking.new

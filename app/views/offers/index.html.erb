@@ -5,24 +5,29 @@
   <div class="filters">
     <ul class="list-inline tabs-underlined">
       <li>
-        <% @offers.each do |offer| %>
-          <%= link_to offer.category, offers_path %>
-        <% end %>
+        <a href="#" class="tab-underlined active" data-controller="filters"><i class="fa-solid fa-kitchen-set"></i> Kitchen</a>
       </li>
-        <li>
-          <a href="#" class="tab-underlined active"><i class="fa-solid fa-kitchen-set"></i> Kitchen</a>
-        </li>
-        <li>
-          <a href="#" class="tab-underlined"><i class="fa-solid fa-toilet-paper"></i> Bathroom</a>
-        </li>
-        <li>
-          <a href="#" class="tab-underlined"><i class="fa-regular fa-futbol"></i> Garden</a>
-        </li>
-        <li>
-        <%= link_to "Garden2", offers_path %>
-        </li>
-      </ul>
-    </div>
+      <li>
+        <a href="#" class="tab-underlined"><i class="fa-solid fa-toilet-paper"></i> Bathroom</a>
+      </li>
+      <li>
+        <a href="#" class="tab-underlined"><i class="fa-regular fa-futbol"></i> Garden</a>
+      </li>
+      <li class="tab-underlined">
+        <i class="fa-regular fa-futbol"></i> <%= link_to "Garden", offers_path(:query => { :category => :garden } ) %>
+      </li>
+    </ul>
+  </div>
+  <div class="search-field">
+      <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search by category"
+        %>
+        <%= submit_tag "Go", class: "btn btn-primary" %>
+      <% end %>
+  </div>
   <%= render "shared/index-card" %>
 </div>
 

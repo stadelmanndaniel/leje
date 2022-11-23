@@ -13,18 +13,6 @@
   flex-direction: column;
 }
 
-// -- for the filter-icons see below --
-.filters {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-//   grid-gap: 10px;
-//   grid-column-start: 2;
-//   grid-column-end: 3;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  position: relative;
-}
 
 .cards {
   display: grid;

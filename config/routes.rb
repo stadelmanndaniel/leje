@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :offers do
     resources :bookings, only: [:create]
   end
-  
+
   get '/profile', to: 'profiles#index'
+  get '/search', to: 'offers#search'
 end

@@ -24,3 +24,9 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}

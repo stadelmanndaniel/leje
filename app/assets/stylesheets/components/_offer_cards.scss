@@ -1,56 +1,101 @@
-.flex-container {
+// .container-filter {
+//   display: flex;
+//   justify-content: center;
+//   align-items: flex-start;
+//   position: relative;
+// }
+
+.container {
   display: flex;
-  justify-content: flex-start;
-  // grid-template-columns: 40px auto 40px;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  flex-direction: column;
 }
 
-.cards-filter {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 10px;
-  grid-column-start: 2;
-  grid-column-end: 3;
+// -- for the filter-icons see below --
+.filters {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+//   grid-gap: 10px;
+//   grid-column-start: 2;
+//   grid-column-end: 3;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  position: relative;
 }
 
-.cards-offers {
+.cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-  // grid-column-start: 2;
-  // grid-column-end: 3;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 13px;
+  width: 100%
+}
+
+.card-link {
   border-radius: 13px;
+  padding-top: 13px;
+  padding-left: 13px;
+  padding-right: 13px;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
 }
 
-.card-offer > img {
+.card-link:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  transition: 0.3s;
+}
+
+.card-link > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
   border-radius: 13px;
 }
 
-.card-offer h2 {
+.card-offer-infos {
+  padding-top: 13px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.card-title-description {
+  padding-bottom: 6px;
+}
+
+.card-title-description h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.card-offer p {
+.card-title-description p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-rating-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.card-rating-price {
   font-size: 12px;
   opacity: .7;
   margin: 0;
 }
 
-.card-offer .card-offer-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  background: #D8D5DB;
-  border-radius: 13px;
-}
-
-.card-link {
-  text-decoration: none;
-  color: inherit;
+.card-offer-price {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
 }

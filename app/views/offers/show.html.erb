@@ -19,6 +19,7 @@
         <div class="carousel-item card-category sh bg-body">
           <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
         </div>
+
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -39,18 +40,36 @@
       </div>
       <img class="avatar ms-4" alt="avatar" width="40" height="40"  src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
     </div>
-      <%= render "checkout" %>
+   
 
-      <%# <%= link_to "Edit offer", edit_offer_path(@offer) %>
-      <%# <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
-        <% @offer.bookings.each do |booking| %>
-      <div class= "d-flex p-5 mt-1">
-        <div>
-        <strong><p><%= booking.user.first_name %> :</strong></p>
-        <%= booking.review %>
-        </div>
-        <p><%= booking.rating %> <i class="fa-solid fa-star"></i>5,0 4.reviews</p>
-        <p>----------------</p>
-      </div>
-    <% end %>
+          <%# <%= render "checkout" %>
+
+          <%= link_to "Edit offer", edit_offer_path(@offer), class: "btn btn-light text link-dark" %>
+          <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class: "btn btn-light text link-dark delete-link" %>
+
+
+  </div>  </div>
+
+<% @offer.bookings.each do |booking| %>
+  <% if booking.review %>
+    <p>Review from user: <%= booking.user.first_name %> :</p>
+    <%= booking.review %>
+
+    <p>Rating: <%= booking.rating %> <i class="fa-solid fa-star"></i></p>
+
+    <p>----------------</p>
+    <br>
+  <% end %>
+<% end %>
+
+
+<div class="container">
+  <h1>Welcome to our form</h1>
+  <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
+    <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
+    <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
+    <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
+    <%= f.submit 'Book' %>
+  <% end %>
+
 </div>

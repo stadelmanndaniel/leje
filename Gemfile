@@ -50,6 +50,9 @@ gem "sassc-rails"
 # User manager gem
 gem "devise"
 
+# Lightweight and powerful datetimepicker
+gem 'flatpickr'
+
 # Fake data for seed
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 

@@ -9,6 +9,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
@@ -48,6 +49,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :description, :price, :address, :user_id)
+    params.require(:offer).permit(:name, :description, :price, :address, :user_id, photos: [])
   end
 end

@@ -53,8 +53,8 @@
   <%= render "checkout" %>
     <div class="mt-4">
       <% if @offer.user == current_user %>
-      <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-4 text link-dark btn btn-primary" %>
-      <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-4 text link-dark delete-link btn btn-danger" %>
+      <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-2 text link-dark btn btn-primary rounded-4" %>
+      <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-2 text link-dark delete-link rounded-4 btn btn-danger" %>
         <% end %>
         <% @offer.bookings.each do |booking| %>
           <% if booking.review %>

@@ -4,6 +4,11 @@
 <div class="container">
   <div class="filters">
     <ul class="list-inline tabs-underlined">
+      <li>
+        <% @offers.each do |offer| %>
+          <%= link_to offer.category, offers_path %>
+        <% end %>
+      </li>
         <li>
           <a href="#" class="tab-underlined active"><i class="fa-solid fa-kitchen-set"></i> Kitchen</a>
         </li>
@@ -13,7 +18,12 @@
         <li>
           <a href="#" class="tab-underlined"><i class="fa-regular fa-futbol"></i> Garden</a>
         </li>
+        <li>
+        <%= link_to "Garden2", offers_path %>
+        </li>
       </ul>
     </div>
   <%= render "shared/index-card" %>
 </div>
+
+<%# .where(@offer, :category => "garden") %>

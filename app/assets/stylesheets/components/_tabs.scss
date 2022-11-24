@@ -7,59 +7,55 @@
     width: 100%;
     margin-top: 15px;
     margin-bottom: 15px;
+    flex-wrap: wrap-reverse;
   }
 
   .filter-icons {
     display: grid;
     justify-content: flex-start;
+    text-decoration: none;
   }
 
-  .all-tabs {
+  .list-inline {
     display: flex;
     align-items: center;
     text-decoration: none;
     margin-bottom: 0px;
   }
 
-  .tab {
-    padding: 8px;
-    margin: 8px;
-    opacity: .4;
-    // border-bottom: 2px solid transparent;
+  .list-inline li {
     border-radius: 13px;
-    // z-index: 1;
+    opacity: .4;
+    text-decoration: none;
     &:hover {
-      color: $navy-blue;
-      // border-color: $navy-blue;
       transition: 0.3s;
       box-shadow: 0 0 11px rgba(33,33,33,.2);
+      opacity: 1;
     }
+  }
+
+  .tab {
+    text-decoration: none;
+  }
+
+  .tab p {
+    margin: 0px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-bottom: 13px;
   }
 
   .icon {
     display: flex;
     justify-content: center;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 13px;
   }
-
-  .tab a {
-    color: black;
-    text-decoration: none;
-  }
-
-  // .tab i {
-  // }
-
-  // .tab.active {
-  //   opacity: 1;
-  //   border-bottom: 3px solid #555555;
-  // }
 
   .search-field {
-    // border-radius: 13px;
-    // align-items: flex-end;
-    // justify-content: flex-end;
     align-items: center;
-    width: 450px;
+    width: 300px;
   }
 
   .search-field .form-control {
@@ -80,13 +76,13 @@
   }
 
   @media(max-width: 992px) {
-    .cards {
+    .filter-icons {
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
   @media(max-width: 768px) {
-    .cards {
+    .filter-icons {
       grid-template-columns: 1fr 1fr;
     }
   }

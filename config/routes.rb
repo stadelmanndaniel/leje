@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :bookings, only: [:create]
   end
 
+  get 'offers/:id/upload_pictures', to: 'offers#upload_pictures', as: :upload_pictures
   get '/profile', to: 'profiles#index'
   get '/search', to: 'offers#search'
 end

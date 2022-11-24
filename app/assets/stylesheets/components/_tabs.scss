@@ -68,8 +68,8 @@
     background-color: $navy-blue;
     border-color: $navy-blue;
     &:hover {
-      background-color: #B0D7FF;
-      border-color: #B0D7FF;
+      background-color: $light-blue;
+      border-color: $light-blue;
       transition: 0.2s;
     }
   }

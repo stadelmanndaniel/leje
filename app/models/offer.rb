@@ -6,11 +6,23 @@ class Offer < ApplicationRecord
   validates :name, :description, :price, :address, presence: true
   before_create :attach_default
 
+  include PgSearch::Model
+
+  pg_search_scope :global_search,
+    against: [:name, :description, :category],
+    associated_against: {
+      user: [:first_name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
       { from: range[0], to: range[1] }
     end
   end
+
 
   def attach_default
     photos.attach(io: File.open(File.join(Rails.root,'app/assets/images/no-picture.jpg')), filename: 'no-picture.jpg') if photos.empty?

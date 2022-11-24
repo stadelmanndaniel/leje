@@ -6,28 +6,28 @@
     <div class="filter-icons">
       <ul class="list-inline all-tabs" data-controller="filter">
         <li class="tab" data-action="click->filter#active">
-          <i class="fa-solid fa-kitchen-set"></i> <%= link_to "Kitchen", offers_path(:query => { :category => :Kitchen } ) %>
+          <i class="fa-solid fa-kitchen-set icon"></i> <%= link_to "Kitchen", offers_path(:query => { :category => :Kitchen } ) %>
         </li>
         <li class="tab" data-action="click->filter#active">
-          <i class="fa-regular fa-futbol"></i> <%= link_to "Garden", offers_path(:query => { :category => :Garden } ) %>
+          <i class="fa-regular fa-futbol icon"></i> <%= link_to "Garden", offers_path(:query => { :category => :Garden } ) %>
         </li>
         <li class="tab">
-          <i class="fa-solid fa-toilet-paper"></i> <%= link_to "Bathroom", offers_path(:query => { :category => :Bathroom } ) %>
+          <i class="fa-solid fa-toilet-paper icon"></i> <%= link_to "Bathroom", offers_path(:query => { :category => :Bathroom } ) %>
         </li>
         <li class="tab">
-          <i class="fa-solid fa-film"></i> <%= link_to "Entertainment", offers_path(:query => { :category => :Entertainment } ) %>
+          <i class="fa-solid fa-film icon"></i> <%= link_to "Entertainment", offers_path(:query => { :category => :Entertainment } ) %>
         </li>
         <li class="tab">
-          <i class="fa-solid fa-wrench"></i> <%= link_to "Construction", offers_path(:query => { :category => :Construction } ) %>
+          <i class="fa-solid fa-wrench icon"></i> <%= link_to "Construction", offers_path(:query => { :category => :Construction } ) %>
         </li>
       </ul>
     </div>
     <div class="search-field">
         <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query2,
-            params[:query2],
+          <%= text_field_tag :query,
+            "#{@search unless @hide}",
             class: "form-control",
-            placeholder: "Search by category"
+            placeholder: "Search here..."
           %>
           <%= submit_tag "Go", class: "btn btn-primary" %>
         <% end %>
@@ -35,5 +35,3 @@
   </div>
   <%= render "shared/index-card" %>
 </div>
-
-<%# .where(@offer, :category => "garden") %>

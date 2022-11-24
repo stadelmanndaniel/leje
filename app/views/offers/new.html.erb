@@ -9,8 +9,8 @@
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         </div>
 
-        <div class="form-actions btn btn-light">
-          <%= f.button :submit %>
+        <div class="form-actions">
+          <%= f.button :submit, id: "test", class: "btn btn-dark" %>
         </div>
       <% end %>
 </div>

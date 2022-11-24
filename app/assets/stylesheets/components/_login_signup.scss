@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.container h2 {
+  margin: 50px;
+}
+
+.form-inputs {
+  width: 400px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}

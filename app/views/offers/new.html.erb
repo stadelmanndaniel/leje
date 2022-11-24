@@ -5,6 +5,7 @@
           <%= f.input :name %>
           <%= f.input :description, as: :text%>
           <%= f.input :price %>
+          <%= f.input :category, :as => :select, :collection => Offer::CATEGORY%>
           <%= f.input :address%>
           <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos (empty -> banana pic placeholder)"%>
         </div>

@@ -1,4 +1,4 @@
- <div class="shadow p-3 mb-5 bg-body mt-5 col-12 col-lg-4 sticky-top rounded-4">
+<div class="shadow p-3 mb-5 bg-body mt-5 col-12 col-lg-4 sticky-top rounded-4">
     <h1></h1>
     <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
       <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
@@ -7,3 +7,9 @@
       <%= f.submit 'Book' , class:" rounded-4 col-12 btn btn-primary " %>
     <% end %>
 </div>
+
+
+
+
+
+

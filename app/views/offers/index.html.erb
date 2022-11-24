@@ -1,33 +1,41 @@
-<%# <div class="container-filter">
-
-</div> %>
 <div class="container">
   <div class=filters>
     <div class="filter-icons">
-      <ul class="list-inline all-tabs" data-controller="filter">
-        <li class="tab" data-action="click->filter#active">
-          <i class="fa-solid fa-kitchen-set"></i> <%= link_to "Kitchen", offers_path(:query => { :category => :Kitchen } ) %>
+      <ul class="list-inline">
+        <li>
+          <%= link_to offers_path(:query => { :category => :Kitchen }), class: "tab" do %>
+            <i class="fa-solid fa-kitchen-set icon"></i> <p>Kitchen</p>
+          <% end %>
         </li>
-        <li class="tab" data-action="click->filter#active">
-          <i class="fa-regular fa-futbol"></i> <%= link_to "Garden", offers_path(:query => { :category => :Garden } ) %>
         </li>
-        <li class="tab">
-          <i class="fa-solid fa-toilet-paper"></i> <%= link_to "Bathroom", offers_path(:query => { :category => :Bathroom } ) %>
+        <li>
+          <%=  link_to offers_path(:query => { :category => :Garden } ), class: "tab" do %>
+            <i class="fa-regular fa-futbol icon"></i> <p>Garden</p>
+          <% end %>
         </li>
-        <li class="tab">
-          <i class="fa-solid fa-film"></i> <%= link_to "Entertainment", offers_path(:query => { :category => :Entertainment } ) %>
+        <li>
+          <%=  link_to offers_path(:query => { :category => :Bathroom } ), class: "tab" do %>
+            <i class="fa-solid fa-toilet-paper icon"></i> <p>Bathroom</p>
+          <% end %>
         </li>
-        <li class="tab">
-          <i class="fa-solid fa-wrench"></i> <%= link_to "Construction", offers_path(:query => { :category => :Construction } ) %>
+        <li>
+          <%=  link_to offers_path(:query => { :category => :Entertainment } ), class: "tab" do %>
+            <i class="fa-solid fa-film icon"></i> <p>Entertainment</p>
+          <% end %>
+        </li>
+        <li>
+          <%=  link_to offers_path(:query => { :category => :Construction } ), class: "tab" do %>
+            <i class="fa-solid fa-wrench icon"></i> <p>Construction</p>
+          <% end %>
         </li>
       </ul>
     </div>
     <div class="search-field">
         <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
-          <%= text_field_tag :query2,
-            params[:query2],
+          <%= text_field_tag :query,
+            "#{@search unless @hide}",
             class: "form-control",
-            placeholder: "Search by category"
+            placeholder: "Search here..."
           %>
           <%= submit_tag "Go", class: "btn btn-primary" %>
         <% end %>
@@ -35,5 +43,3 @@
   </div>
   <%= render "shared/index-card" %>
 </div>
-
-<%# .where(@offer, :category => "garden") %>

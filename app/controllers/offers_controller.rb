@@ -6,15 +6,17 @@ class OffersController < ApplicationController
 
   def index
     if params[:query].present?
-      @offers = Offer.where(category: params[:query][:category])
+      if params[:query]["category"]
+        @search = params[:query]["category"]
+        @hide = true
+      else
+        @search = params[:query]
+      end
+      @offers = Offer.global_search(@search)
     else
       @offers = Offer.all
     end
   end
-
-  # def search
-  #   @offers = Song.where(category: params[:query])
-  # end
 
   def show
     @booking = Booking.new
@@ -61,6 +63,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :description, :price, :address, :user_id, photos: [])
+    params.require(:offer).permit(:name, :description, :price, :address, :category, :user_id, photos: [])
   end
 end

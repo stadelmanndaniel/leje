@@ -12,7 +12,7 @@
             <p>
               <i class="fa-solid fa-location-dot"></i> <%= offer.address %>
               <i class="fa-regular fa-user"></i> <%= offer.user.first_name %>
-              <i class="fa-regular fa-star"></i> <%= (offer.bookings.count == 0) ? "-" : offer.bookings.first.rating %>
+              <i class="fa-regular fa-star"></i> <%= (offer.bookings.count == 0) ? "-" : calculate_avg_rating(offer) %>
             </p>
           </div>
           <div>

@@ -2,12 +2,12 @@
       <%= simple_form_for @offer, html: {class: "offer_form"} do |f| %>
 
         <div class="form-inputs">
-          <%= f.input :address%>
-          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+          <%= f.input :name%>
+          <%= f.input :photos, as: :file, input_html: { multiple: true }, label: "Photos (empty -> banana pic placeholder)" %>
         </div>
 
-        <div class="form-actions btn btn-light">
-          <%= f.button :submit %>
+        <div class="form-actions">
+          <%= f.button :submit , id: "test", class: "btn btn-dark"%>
         </div>
       <% end %>
 </div>

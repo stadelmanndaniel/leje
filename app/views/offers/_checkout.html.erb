@@ -4,6 +4,6 @@
       <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
       <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
       <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-      <%= f.submit 'Book' , class:"btn btn-dark", id: "blue_button" %>
+      <%= f.submit 'Book' , class:"btn btn-dark col-12", id: "blue_button" %>
     <% end %>
 </div>

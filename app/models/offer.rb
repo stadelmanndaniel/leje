@@ -4,6 +4,16 @@ class Offer < ApplicationRecord
   has_many_attached :photos
   validate :photo_present
   validates :name, :description, :price, :address, presence: true
+  include PgSearch::Model
+
+  pg_search_scope :global_search,
+    against: [:name, :description, :category],
+    associated_against: {
+      user: [:first_name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 
   def unavailable_dates
     bookings.pluck(:start_date, :end_date).map do |range|
@@ -12,7 +22,8 @@ class Offer < ApplicationRecord
   end
 
   private
-    def photo_present
-      errors.add(:photos, "you must attach at least a picture") if self.photos.empty?
-    end
+
+  def photo_present
+    errors.add(:photos, "you must attach at least a picture") if self.photos.empty?
+  end
 end

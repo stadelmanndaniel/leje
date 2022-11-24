@@ -5,6 +5,7 @@ class Offer < ApplicationRecord
   # validate :photo_present, , default_url: "avatar.png"
   validates :name, :description, :price, :address, presence: true
   before_create :attach_default
+  before_update :attach_default
 
   include PgSearch::Model
 

@@ -3,7 +3,9 @@ class Offer < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
   # validate :photo_present, , default_url: "avatar.png"
-  validates :name, :description, :price, :address, presence: true
+  validates :name, :description, :price, :address, :category, presence: true
+  CATEGORY = ['Kitchen', 'Garden', 'Bathroom', 'Entertainment', 'Construction', 'Other']
+  validates_inclusion_of :category, in: CATEGORY
   before_create :attach_default
   before_update :attach_default
 

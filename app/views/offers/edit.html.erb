@@ -5,6 +5,7 @@
           <%= f.input :name %>
           <%= f.input :description, as: :text%>
           <%= f.input :price %>
+          <%= f.input :category, :as => :select, :collection => Offer::CATEGORY%>
           <%= f.input :address%>
         </div>
 

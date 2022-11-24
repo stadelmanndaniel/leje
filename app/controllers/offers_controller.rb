@@ -16,7 +16,6 @@ class OffersController < ApplicationController
     else
       @offers = Offer.all
     end
-    # @average = calculate_avg_rating(@offers)
   end
 
   def show
@@ -64,14 +63,6 @@ class OffersController < ApplicationController
   end
 
   def offer_params
-    params.require(:offer).permit(:name, :description, :price, :address, :user_id, photos: [])
+    params.require(:offer).permit(:name, :description, :price, :address, :category, :user_id, photos: [])
   end
-
-  # def calculate_avg_rating(offers)
-  #   raise
-  #   rating = []
-  #   offers.bookings.each { |booking| rating << booking.rating }
-  #   avg = rating.inject(:+).to_f / offer.bookings.count
-  #   return avg
-  # end
 end

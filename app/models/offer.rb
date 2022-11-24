@@ -2,8 +2,10 @@ class Offer < ApplicationRecord
   has_many :bookings, dependent: :destroy
   belongs_to :user
   has_many_attached :photos
-  validate :photo_present
+  # validate :photo_present, , default_url: "avatar.png"
   validates :name, :description, :price, :address, presence: true
+  before_create :attach_default
+
   include PgSearch::Model
 
   pg_search_scope :global_search,
@@ -21,9 +23,14 @@ class Offer < ApplicationRecord
     end
   end
 
-  private
 
-  def photo_present
-    errors.add(:photos, "you must attach at least a picture") if self.photos.empty?
+  def attach_default
+    photos.attach(io: File.open(File.join(Rails.root,'app/assets/images/no-picture.jpg')), filename: 'no-picture.jpg') if photos.empty?
   end
+
+  # Undo private method and the validation to not allow submitions without pictures
+  # private
+  #   def photo_present
+  #     errors.add(:photos, "you must attach at least a picture") if self.photos.empty?
+  #   end
 end

@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  before_action :set_offer, only: %i[show edit update destroy]
+  before_action :set_offer, only: %i[show edit update destroy upload_pictures]
 
   # Add here the methods that you want a visitor to access without an account
   skip_before_action :authenticate_user!, only: %i[show index]
@@ -47,8 +47,12 @@ class OffersController < ApplicationController
     end
   end
 
+  def upload_pictures
+  end
+
   def destroy
     @offer.destroy
+    @offer.photos.purge
     redirect_to offers_url, notice: "Offer was successfully destroyed."
   end
 

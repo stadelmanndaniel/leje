@@ -1,53 +1,12 @@
 <div class="container">
   <div class="container row flex-row">
-    <div class="col-12 col-lg-8">
-      <div class="mt-4">
-        <h1><%= @offer.name %></h1>
-        <p> <i class="fa-solid fa-star"></i>5,0 4.reviews</p>
-        <div id="carouselExampleIndicators" class="carousel slide .item " data-ride="carousel" style="width: 700px">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active card-category sh bg-body">
-              <%= cl_image_tag @offer.photos.first.key, height: 412, width:"700", crop: :fill, class: "rounded-4 d-block" %>
-            </div>
-
-            <% @offer.photos[1..-1].each do |photo| %>
-              <div class="carousel-item card-category sh bg-body">
-                <%= cl_image_tag photo.key, height: 412, width:"700", crop: :fill, class: "rounded-4 d-block" %>
-              </div>
-            <% end %>
-              <%# <div class="carousel-item active card-category sh bg-body">
-                <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
-              </div>
-              <div class="carousel-item card-category sh bg-body">
-                <img src="https://www.mylager.de/wp-content/uploads/haushalt-organisieren.jpeg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
-              </div>
-              <div class="carousel-item card-category sh bg-body">
-                <img src="https://aisvip-a.akamaihd.net/masters/1387331/hausarbeit-ist-meistens-frauensache.jpg" class="rounded-4 d-block" alt="Girl in a jacket" width="730" height="412">
-              </div> %>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-          </a>
-      </div>
-    </div>
-
-    <div class="card-category col-12 p-2 border-bottom sh bg-body rounded d-flex">
+    <%= render "carousel" %>
+    <div class="card-category col-10 p-2 border-bottom sh bg-body rounded d-flex">
       <div>
         <p><strong><%= @offer.description %></strong></p>
         <i class="fa-solid fa-location-dot"></i> <%= @offer.address %>
       </div>
         <p class="mt-5"><strong><%= @offer.price %>€</strong></p>
-      <%# <img class="avatar ms-4" alt="avatar" width="40" height="40"  src="https://kitt.lewagon.com/placeholder/users/cveneziani" /> %>
     </div>
   </div>
     <%= render "checkout" %>
@@ -56,15 +15,17 @@
         <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-2 text link-dark btn btn-primary rounded-4" %>
         <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-2 text link-dark delete-link rounded-4 btn btn-danger" %>
       <% end %>
-      <% @offer.bookings.each do |booking| %>
-        <% if booking.review %>
-          <p><strong><%= booking.user.first_name %></strong>:</p>
-          <%= booking.review %>
-          <p>Rating: <%= booking.rating %> <i class="fa-solid fa-star"></i></p>
-          <p>----------------</p>
-          <br>
+        <% @offer.bookings.each do |booking| %>
+          <% if booking.review %>
+          <div class ="shadow p-3 mb-4 bg-body rounded-4 d-flex col-7">
+            <div>
+            <p><strong><%= booking.user.first_name %></strong>:</p>
+            <%= booking.review %>
+            </div>
+            <p>Rating: <%= booking.rating %> <i class="fa-solid fa-star me-4"></i></p>
+          </div>
+          <% end %>
         <% end %>
-      <% end %>
     </div>
   </div>
 </div>

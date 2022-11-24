@@ -1,6 +1,5 @@
-.container {
+#index-container {
   display: flex;
-  // justify-content: center;
   align-items: flex-start;
   position: relative;
   flex-direction: column;
@@ -22,6 +21,7 @@
   text-decoration: none;
   color: inherit;
   overflow: hidden;
+  min-width: 300px;
 }
 
 .card-link:hover {
@@ -44,6 +44,7 @@
 
 .card-title-description {
   padding-bottom: 6px;
+  min-height: 100px;
 }
 
 .card-title-description h2 {

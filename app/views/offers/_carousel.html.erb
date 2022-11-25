@@ -9,13 +9,13 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active card-category sh bg-body">
-              <%= cl_image_tag @offer.photos.first.key, height: 412, width:"700", crop: :fill, class: "rounded-4 d-block" %>
+            <div class="carousel-item active card-category sh bg-body ">
+              <%= cl_image_tag @offer.photos.first.key, height: 412, width:"700", crop: :fill, class: "rounded-4 d-block " %>
             </div>
 
             <% @offer.photos[1..-1].each do |photo| %>
               <div class="carousel-item card-category sh bg-body">
-                <%= cl_image_tag photo.key, height: 412, width:"700", crop: :fill, class: "rounded-4 d-block" %>
+                <%= cl_image_tag photo.key, height: 412, width:"700", crop: :fill, class: "rounded-4 d-block " %>
               </div>
             <% end %>
               <%# <div class="carousel-item active card-category sh bg-body">

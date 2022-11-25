@@ -6,3 +6,12 @@
     transition: 0.2s;
   }
 }
+
+#pink-button {
+  color: white;
+  &:hover {
+    background-color: #f08bb7;
+    border-color: #f08bb7;
+    transition: 0.2s;
+  }
+}

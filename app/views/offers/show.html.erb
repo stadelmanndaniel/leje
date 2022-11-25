@@ -1,27 +1,20 @@
 <div class="container">
-  <div class="container row flex-row">
+  <div class="container row flex-row md-col-6">
     <%= render "offers/carousel" %>
-    <div class="card-category col-10 p-2 border-bottom sh bg-body rounded ">
-      <div class ="">
-        <p><strong><%= @offer.description %></strong></p>
-        <div class="d-flex justify-content-between" style="margin-right:-491px;">
-          <p><i class="fa-solid fa-location-dot"> </i><strong><%= @offer.address %> </strong></p>
-          <strong><%= @offer.price %>€</strong></p>
-        </div>
+    <div class="card-category col-10 p-2 border-bottom sh bg-body rounded " style ="width: 700px">
+      <p><strong><%= @offer.description %></strong></p>
+      <div class="d-flex justify-content-between" style="margin-right:-491px;">
+        <p><i class="fa-solid fa-location-dot"> </i>&nbsp;&nbsp;<strong><%= @offer.address %></strong></p>
+        <strong><%= @offer.price %>€</strong></p>
       </div>
-
     </div>
   </div>
     <%= render "offers/checkout" %>
+
     <div class="mt-5">
-      <% if @offer.user == current_user %>
-        <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-2 btn btn-dark",id: "blue_button" %>
-        <%= link_to "Edit pictures", upload_pictures_path(@offer), class: " col-2  btn btn-dark", id: "blue_button" %>
-        <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-2 text link-dark delete-link rounded-4 btn btn-danger" %>
-      <% end %>
         <% @offer.bookings.each do |booking| %>
           <% if booking.review %>
-          <div class ="shadow p-3 mb-4 bg-body rounded-4 d-flex col-7 borde pt-3">
+          <div class ="shadow p-3 mb-4 bg-body rounded-4 d-flex col-7 border  pt-3 " style ="width: 700px">
             <div>
             <p><strong><%= booking.user.first_name %></strong>:</p>
             <%= booking.review %>

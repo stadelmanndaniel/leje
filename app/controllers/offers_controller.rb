@@ -2,7 +2,7 @@ class OffersController < ApplicationController
   before_action :set_offer, only: %i[show edit update destroy upload_pictures]
 
   # Add here the methods that you want a visitor to access without an account
-  skip_before_action :authenticate_user!, only: %i[show index]
+  skip_before_action :authenticate_user!, only: %i[show index home]
 
   def home
   end

@@ -11,7 +11,7 @@
     <div class= "d-flex flex-column align-items-center ">
       <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-12 btn btn-dark mt-4",id: "blue_button" %>
       <%= link_to "Edit pictures", upload_pictures_path(@offer), class: " col-12  btn btn-dark mt-4", id: "blue_button" %>
-      <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-12 text link-dark delete-link rounded-4 btn btn-danger mt-4" %>
+      <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-12 delete-link rounded-4 btn btn-danger mt-4", id: "pink-button" %>
     </div>
   <% end %>
 </div>

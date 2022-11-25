@@ -4,6 +4,9 @@ class OffersController < ApplicationController
   # Add here the methods that you want a visitor to access without an account
   skip_before_action :authenticate_user!, only: %i[show index]
 
+  def home
+  end
+
   def index
     if params[:query].present?
       if params[:query]["category"]

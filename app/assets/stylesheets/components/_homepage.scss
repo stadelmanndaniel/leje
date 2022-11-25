@@ -1,10 +1,10 @@
 .banner-homepage {
   background-size: cover;
   background-position: center;
-  padding: 200px 0;
+  padding: 100px 0;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
   background-image: asset-url("homepage-img.png");
-  height: 87vh;
+  height: 90vh;
 }
 
 .banner-homepage h1 {
@@ -22,4 +22,8 @@
   color: $white;
   opacity: .9;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.btn-homepage {
+  padding: 13px;
 }

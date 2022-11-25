@@ -27,6 +27,7 @@
     border-radius: 13px;
     opacity: .4;
     text-decoration: none;
+    min-width: 66px;
     &:hover {
       transition: 0.3s;
       box-shadow: 0 0 11px rgba(33,33,33,.2);
@@ -43,6 +44,7 @@
     padding-left: 13px;
     padding-right: 13px;
     padding-bottom: 13px;
+    text-align: center;
   }
 
   .icon {
@@ -59,15 +61,13 @@
   }
 
   .search-field .form-control {
-    border-top-left-radius: 13px;
-    border-bottom-left-radius: 13px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
   }
 
-  .search-field .btn {
-    border-top-right-radius: 13px;
-    border-bottom-right-radius: 13px;
-    background-color: $navy-blue;
-    border-color: $navy-blue;
+  .search-field .search-btn {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
     &:hover {
       background-color: $light-blue;
       border-color: $light-blue;

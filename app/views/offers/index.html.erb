@@ -3,10 +3,14 @@
     <div class="filter-icons">
       <ul class="list-inline">
         <li>
+          <%=  link_to offers_path, class: "tab" do %>
+            <i class="fa-solid fa-house icon"></i> <p>All</p>
+          <% end %>
+        </li>
+        <li>
           <%= link_to offers_path(:query => { :category => :Kitchen }), class: "tab" do %>
             <i class="fa-solid fa-kitchen-set icon"></i> <p>Kitchen</p>
           <% end %>
-        </li>
         </li>
         <li>
           <%=  link_to offers_path(:query => { :category => :Garden } ), class: "tab" do %>
@@ -28,6 +32,11 @@
             <i class="fa-solid fa-wrench icon"></i> <p>Construction</p>
           <% end %>
         </li>
+        <li>
+          <%=  link_to offers_path(:query => { :category => :Other } ), class: "tab" do %>
+            <i class="fa-solid fa-rug icon"></i> <p>Other</p>
+          <% end %>
+        </li>
       </ul>
     </div>
     <div class="search-field">
@@ -37,7 +46,7 @@
             class: "form-control",
             placeholder: "Search here..."
           %>
-          <%= submit_tag "Go", class: "btn btn-primary" %>
+          <%= submit_tag "Go", class: "btn btn-primary search-btn" %>
         <% end %>
     </div>
   </div>

@@ -11,27 +11,27 @@
     <h3> Your bookings:</h3>
     <br>
      <% if @bookings_current.count != 0 %>
-     <h4>Current bookings: (<%= @bookings_current.count %>)</h4>
-      <% @bookings_current.each do |booking| %>
-        <div class="bookings">
-          <p>You are renting : <%= booking.offer.name %> from <%= booking.offer.user.first_name %></p>
-          <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
-          <p>Please contact the owner under <%= link_to booking.offer.user.phone_number, "tel:#{booking.offer.user.phone_number}" %> or email under <%= mail_to booking.offer.user.email %></p>
-        </div>
-      <% end %>
+      <h3>Current bookings: (<%= @bookings_current.count %>)</h3>
+        <% @bookings_current.each do |booking| %>
+          <div class="bookings shadow p-3 mb-4 bg-body rounded-4 col-7 border pt-3">
+            <p>You are renting : <%= booking.offer.name %> from <%= booking.offer.user.first_name %></p>
+            <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p>Please contact the owner under <%= link_to booking.offer.user.phone_number, "tel:#{booking.offer.user.phone_number}" %> or email under <%= mail_to booking.offer.user.email %></p>
+          </div>
+        <% end %>
     <% end %>
     <br>
      <% if @bookings_past.count != 0 %>
-     <h4>Past bookings: (<%= @bookings_past.count %>)</h4>
-      <% @bookings_past.each do |booking| %>
-        <div class="bookings">
-          <p>You rented: <%= booking.offer.name %> from <%= booking.offer.user.first_name %></p>
-          <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
-          <p>Reviews are coming : ></p>
-        </div>
-      <% end %>
+      <h3>Past bookings: (<%= @bookings_past.count %>)</h3>
+        <% @bookings_past.each do |booking| %>
+          <div class="bookings shadow p-3 mb-4 bg-body rounded-4 col-7 border pt-3">
+            <p>You rented: <%= booking.offer.name %> from <%= booking.offer.user.first_name %></p>
+            <p>Date: from <%= booking.start_date %> to <%= booking.end_date %></p>
+            <p><%= booking.review ? "Thank you for your booking" : (link_to "Please leave a review", edit_booking_path(booking)) %></p>
+          </div>
+        <% end %>
     <% end %>
   <% else %>
-  <h3> Your don't have any bookings</h3>
+    <h3> Your don't have any bookings</h3>
   <% end %>
 </div>

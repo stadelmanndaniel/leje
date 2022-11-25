@@ -14,7 +14,7 @@
     <div class="mt-5">
         <% @offer.bookings.each do |booking| %>
           <% if booking.review %>
-          <div class ="shadow p-3 mb-4 bg-body rounded-4 d-flex col-7  pt-3 " style ="width: 700px">
+          <div class ="shadow p-3 mb-4 bg-body rounded-4 d-flex col-7 border  pt-3 " style ="width: 700px">
             <div>
             <p><strong><%= booking.user.first_name %></strong>:</p>
             <%= booking.review %>

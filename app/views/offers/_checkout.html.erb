@@ -5,7 +5,11 @@
       <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
       <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
       <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
-      <%= f.submit 'Book' , class:"btn btn-dark col-12", id: "blue_button" %>
+      <% if user_signed_in? %>
+        <%= f.submit 'Book' , class:"btn btn-dark col-12", id: "blue_button" %>
+      <% else %>
+        <%= f.submit 'Please login to book this item' , class:"btn btn-warning col-12", id: "blue_button" %>
+        <% end %>
     <% end %>
   <% else %>
     <div class= "d-flex flex-column align-items-center ">

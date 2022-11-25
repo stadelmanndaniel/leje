@@ -1,17 +1,17 @@
 
 <div class="shadow p-3 bg-body col-12 col-lg-4 rounded-4 design">
- <% if @offer.user != current_user %>
+  <% if @offer.user != current_user %>
     <%= simple_form_for [@offer, @booking], data: { controller: 'flatpickr' } do |f| %>
       <input type="hidden" id="unavailable" data-dates="<%=@offer.unavailable_dates.to_json%>">
       <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startTime" } } %>
       <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endTime" }, id: 'end_time' } %>
       <%= f.submit 'Book' , class:"btn btn-dark col-12", id: "blue_button" %>
     <% end %>
-    <% else %>
-        <div class= "col-12">
-          <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-2 btn btn-dark",id: "blue_button" %>
-          <%= link_to "Edit pictures", upload_pictures_path(@offer), class: " col-2  btn btn-dark", id: "blue_button" %>
-          <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-2 text link-dark delete-link rounded-4 btn btn-danger" %>
-        </div>
-    <% end %>
+  <% else %>
+    <div class= "d-flex flex-column align-items-center ">
+      <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-12 btn btn-dark mt-4",id: "blue_button" %>
+      <%= link_to "Edit pictures", upload_pictures_path(@offer), class: " col-12  btn btn-dark mt-4", id: "blue_button" %>
+      <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-12 text link-dark delete-link rounded-4 btn btn-danger mt-4" %>
+    </div>
+  <% end %>
 </div>

@@ -8,7 +8,7 @@
       <% if user_signed_in? %>
         <%= f.submit 'Book' , class:"btn btn-dark col-12", id: "blue_button" %>
       <% else %>
-        <%= f.submit 'Please login to book this item' , class:"btn btn-warning col-12", id: "blue_button" %>
+        <%= f.submit 'Please login or sign up', new_user_session_path, class:"btn btn-warning col-12", id: "blue_button" %>
         <% end %>
     <% end %>
   <% else %>

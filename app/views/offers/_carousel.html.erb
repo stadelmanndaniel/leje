@@ -1,7 +1,7 @@
     <div class="col-12 col-lg-8">
       <div class="mt-4">
         <h1><%= @offer.name %></h1>
-        <p> <i class="fa-solid fa-star"></i> <%= (@offer.bookings.count == 0) ? "-" : calculate_avg_rating(@offer) %> - <%= @offer.bookings.count%> reviews</p
+        <p> <i class="fa-solid fa-star"></i> <%= (@offer.bookings.count == 0) ? "-" : calculate_avg_rating(@offer) %> - <%= @offer.bookings.count%> reviews</p>
         <div id="carouselExampleIndicators" class="carousel slide item" data-ride="carousel" style="width: 700px">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -36,5 +36,6 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
           </a>
+
       </div>
     </div>

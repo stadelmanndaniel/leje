@@ -15,8 +15,8 @@
     <%= render "checkout" %>
     <div class="mt-5">
       <% if @offer.user == current_user %>
-        <%= link_to "Edit offer", edit_offer_path(@offer), class: "btn btn-dark",id: "blue_button" %>
-        <%= link_to "Edit pictures", upload_pictures_path(@offer), class: "btn btn-dark", id: "blue_button" %>
+        <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-2 btn btn-dark",id: "blue_button" %>
+        <%= link_to "Edit pictures", upload_pictures_path(@offer), class: " col-2  btn btn-dark", id: "blue_button" %>
         <%= link_to "Delete offer", offer_path(@offer), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} , class:"col-2 text link-dark delete-link rounded-4 btn btn-danger" %>
       <% end %>
         <% @offer.bookings.each do |booking| %>

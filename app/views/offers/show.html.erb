@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container row flex-row">
-    <%= render "carousel" %>
+    <%= render "offers/carousel" %>
     <div class="card-category col-10 p-2 border-bottom sh bg-body rounded ">
       <div class ="">
         <p><strong><%= @offer.description %></strong></p>
@@ -12,7 +12,7 @@
 
     </div>
   </div>
-    <%= render "checkout" %>
+    <%= render "offers/checkout" %>
     <div class="mt-5">
       <% if @offer.user == current_user %>
         <%= link_to "Edit offer", edit_offer_path(@offer), class: "col-2 btn btn-dark",id: "blue_button" %>

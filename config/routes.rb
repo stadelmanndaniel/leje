@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :offers do
     resources :bookings, only: [:create]
   end
+  resources :bookings, only: %i[edit update]
 
   get 'offers/:id/upload_pictures', to: 'offers#upload_pictures', as: :upload_pictures
   get '/profile', to: 'profiles#index'

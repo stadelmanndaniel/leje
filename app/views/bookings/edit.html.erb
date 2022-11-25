@@ -1,0 +1,14 @@
+<div class="container" id="offer-form">
+  <h3>Please write your review</h3>
+      <%= simple_form_for @booking, html: {class: "offer_form"} do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :review, as: :text%>
+          <%= f.input :rating, collection: 1..5 %>
+        </div>
+
+        <div class="form-actions" >
+          <%= f.button :submit , id: "blue_button", class: "btn btn-dark"%>
+        </div>
+      <% end %>
+</div>

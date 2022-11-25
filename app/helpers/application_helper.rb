@@ -3,9 +3,9 @@ module ApplicationHelper
     "-" if offer.bookings.empty?
     rating = []
     offer.bookings.each { |booking| rating << booking.rating if booking.rating }
-    avg = rating.inject(:+).to_f / rating.count
+    avg = (rating.inject(:+).to_f / rating.count).round(1)
     avg = "-" if rating.empty?
-    return avg.round(1)
+    return avg
   end
 
   def calculate_nr_reviews(offer)
@@ -15,5 +15,4 @@ module ApplicationHelper
     nr = rating.count
     return nr
   end
-
 end

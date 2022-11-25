@@ -3,8 +3,8 @@ class Booking < ApplicationRecord
   belongs_to :user
 
   validates :rating, :review, presence: true, on: :update
-  validates :start_date, :end_date, presence: true, availability: true, on: :create
-  validate :end_date_after_start_date
+  # validates :start_date, :end_date, presence: true, availability: true, on: :create
+  # validate :end_date_after_start_date
 
   scope :current_booking, -> { where("start_date > ?", Time.now) }
   scope :past_booking, -> { where("start_date < ?", Time.now) }
